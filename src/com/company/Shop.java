@@ -9,12 +9,21 @@ public class Shop {
     final List<Car> cars = new ArrayList<>(10);
 
 
-    public Car sellCar() {
-        return seller.sellCar();
+    public void sellCar() {
+        for (int i = 0; i < 4; i++) {
+            seller.sellCar();
+        }
     }
 
     public void produceCar() {
-        seller.produceCar();
+        try {
+            for (int i = 0; i < 10; i++) {
+                seller.produceCar();
+                Thread.sleep(2000);
+            }
+        } catch (InterruptedException exception) {
+            exception.printStackTrace();
+        }
     }
 
     List<Car> getCars() {
